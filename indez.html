@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Ahorro Universitario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="flex flex-col min-h-dvh">
+  <header class="px-4 lg:px-6 h-14 flex items-center">
+    <a class="flex items-center justify-center" href="#">
+      <img src="/img/logo.png" width="24" height="24" class="size-6" alt="">
+
+    </a>
+    <nav class="ml-auto flex gap-4 sm:gap-6">
+      <a class="text-sm font-medium hover:underline underline-offset-4" href="#">Contacto</a>
+    </nav>
+  </header>
+  <main class="flex-1">
+    <section class="w-full py-12 md:py-8 lg:py-32 border-y bg-cover bg-[url('/img/bg2.png')] flex justify-center">
+      <div class="container px-4 md:px-2 space-y-10 xl:space-y-16">
+        <div class="grid max-w-[1200px] mx-auto gap-4 px-4 sm:px-6 md:px-2 md:grid-cols-2 md:gap-16">
+          <div class="flex flex-col items-center justify-center">
+            <h1 class="lg:leading-tighter text-5xl font-bold tracking-normal sm:text-5xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] text-white">
+              Invierte en el futuro de tus hijos y de su Universidad
+            </h1>
+            <p class="mx-auto max-w-[1000px] text-2xl text-white text-left">
+              Usa la calculadora para saber cuanto tienes que invertir en el futuro de tus hijos
+            </p>
+          </div>
+          <div class="flex flex-col items-start space-y-4">
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-md bg-white">
+              <form id="cotizadorForm">
+                <div class="px-6 pt-6 space-y-4">
+                  <div class="grid gap-2">
+                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="nombre">Nombre</label>
+                    <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="nombre" placeholder="Ingresa el nombre de tu hijo" required />
+                  </div>
+                  <div class="grid gap-2">
+                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="edad">Edad de tu Hijo</label>
+                    <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" type="number" id="edad" placeholder="Ingresa la edad actual de tu hijo" required />
+                  </div>
+                  <div class="grid gap-2">
+                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="escuela">Selecciona una escuela</label>
+                    <select id="escuela" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" required>
+                      <option value="tecMonterrey">Tec de Monterrey</option>
+                      <option value="anahuac">Anáhuac</option>
+                      <option value="udla">UDLA</option>
+                      <option value="uvm">UVM</option>
+                    </select>
+                  </div>
+                  <div class="flex items-center p-6">
+                    <button type="submit" class="w-full bg-sky-600 text-white p-2 rounded hover:bg-blue-600">Calcular Ahorro</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Resultados de la tabla -->
+    <section class="w-full bg-white flex justify-center">
+      <div id="resultado" class="grid max-w-[1200px]"></div>
+    </section>
+    <!-- Seccion de nuestros logros -->
+    <section  class="w-full py-12 md:py-24 lg:py-24 flex justify-center ">
+      <div class="container mx-auto px-4 md:px-6 grid max-w-[1200px]">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-4">
+            <h2 class="text-3xl font-bold mb-4">Nuestros Logros</h2>
+            <p class="text-muted-foreground">
+              En Acme Investments, nos enorgullece ofrecer un desempeño excepcional a nuestros clientes. Aquí puedes
+              ver algunas de nuestras principales estadísticas.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-background rounded-lg p-4 shadow-sm">
+              <h3 class="text-3xl font-bold mb-1">$2.5B</h3>
+              <p class="text-muted-foreground">Activos Gestionados</p>
+            </div>
+            <div class="bg-background rounded-lg p-4 shadow-sm">
+              <h3 class="text-3xl font-bold mb-1">15%</h3>
+              <p class="text-muted-foreground">Rendimiento Anual Promedio</p>
+            </div>
+            <div class="bg-background rounded-lg p-4 shadow-sm">
+              <h3 class="text-3xl font-bold mb-1">98%</h3>
+              <p class="text-muted-foreground">Satisfacción del Cliente</p>
+            </div>
+            <div class="bg-background rounded-lg p-4 shadow-sm">
+              <h3 class="text-3xl font-bold mb-1">20+</h3>
+              <p class="text-muted-foreground">Años de Experiencia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Comentarios de clientes -->
+    <section class="w-full py-8 md:py-8 lg:py-8 flex justify-center ">
+      <div class="container grid gap-8 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-6 lg:gap-12 grid max-w-[1200px]">
+        <div class="rounded-lg bg-card p-6 shadow-lg">
+          <div class="mb-4 flex items-center space-x-4">
+            <img
+              src="img/placeholder.jpeg"
+              alt="User Avatar"
+              width="48"
+              height="48"
+              class="h-12 w-12 rounded-full"
+              style="aspect-ratio: 48 / 48; object-fit: cover;"
+            />
+            <div>
+              <h4 class="text-lg font-medium">John Doe</h4>
+              <p class="text-sm text-muted-foreground">CEO, Acme Inc.</p>
+            </div>
+          </div>
+          <p class="text-muted-foreground">
+            El servicio al cliente que recibí fue excepcional. El equipo de soporte fue más allá para resolver mis inquietudes y me brindó la confianza necesaria para invertir en el futuro educativo de mis hijos.
+          </p>
+        </div>
+        <div class="rounded-lg bg-card p-6 shadow-lg">
+          <div class="mb-4 flex items-center space-x-4">
+            <img
+              src="img/placeholder.jpeg"
+              alt="User Avatar"
+              width="48"
+              height="48"
+              class="h-12 w-12 rounded-full"
+              style="aspect-ratio: 48 / 48; object-fit: cover;"
+            />
+            <div>
+              <h4 class="text-lg font-medium">Jane Smith</h4>
+              <p class="text-sm text-muted-foreground">Marketing Manager, Globex Corp.</p>
+            </div>
+          </div>
+          <p class="text-muted-foreground">La calidad y el detalle de este plan de inversión me han impresionado. Ha cambiado por completo mi perspectiva sobre la planificación financiera para la educación universitaria de mis hijos.”</p>
+        </div>
+        <div class="rounded-lg bg-card p-6 shadow-lg">
+          <div class="mb-4 flex items-center space-x-4">
+            <img
+              src="img/placeholder.jpeg"
+              alt="User Avatar"
+              width="48"
+              height="48"
+              class="h-12 w-12 rounded-full"
+              style="aspect-ratio: 48 / 48; object-fit: cover;"
+            />
+            <div>
+              <h4 class="text-lg font-medium">Michael Johnson</h4>
+              <p class="text-sm text-muted-foreground">Founder, Startup Ventures</p>
+            </div>
+          </div>
+          <p class="text-muted-foreground">
+            “Estoy asombrado por el nivel de detalle y la atención a la experiencia del usuario. Este producto es de primera clase para asegurar un futuro universitario sin preocupaciones financieras para mis hijos.”
+          </p>
+        </div>
+        <div class="rounded-lg bg-card p-6 shadow-lg">
+          <div class="mb-4 flex items-center space-x-4">
+            <img
+              src="img/placeholder.jpeg"
+              alt="User Avatar"
+              width="48"
+              height="48"
+              class="h-12 w-12 rounded-full"
+              style="aspect-ratio: 48 / 48; object-fit: cover;"
+            />
+            <div>
+              <h4 class="text-lg font-medium">Emily Davis</h4>
+              <p class="text-sm text-muted-foreground">Designer, Creative Agency</p>
+            </div>
+          </div>
+          <p class="text-muted-foreground">
+            “He probado varios productos similares, pero este destaca por su interfaz intuitiva y sus características poderosas. Ha sido esencial para la planificación educativa a largo plazo de mi familia.”
+          </p>
+        </div>
+        <div class="rounded-lg bg-card p-6 shadow-lg">
+          <div class="mb-4 flex items-center space-x-4">
+            <img
+              src="img/placeholder.jpeg"
+              alt="User Avatar"
+              width="48"
+              height="48"
+              class="h-12 w-12 rounded-full"
+              style="aspect-ratio: 48 / 48; object-fit: cover;"
+            />
+            <div>
+              <h4 class="text-lg font-medium">David Lee</h4>
+              <p class="text-sm text-muted-foreground">Developer, Tech Startup</p>
+            </div>
+          </div>
+          <p class="text-muted-foreground">
+            “Estoy impresionado por el nivel de detalle y la calidad general de este producto. Ha sido un cambio total para mí en cuanto a la planificación financiera para la educación universitaria de mis hijos.”
+          </p>
+        </div>
+        <div class="rounded-lg bg-card p-6 shadow-lg">
+          <div class="mb-4 flex items-center space-x-4">
+            <img
+              src="img/placeholder.jpeg"
+              alt="User Avatar"
+              width="48"
+              height="48"
+              class="h-12 w-12 rounded-full"
+              style="aspect-ratio: 48 / 48; object-fit: cover;"
+            />
+            <div>
+              <h4 class="text-lg font-medium">Sarah Wilson</h4>
+              <p class="text-sm text-muted-foreground">Marketing Consultant, Small Business</p>
+            </div>
+          </div>
+          <p class="text-muted-foreground">El servicio de asesoría financiera que recibí fue excepcional. El equipo fue más allá para resolver todas mis dudas, brindándome la confianza necesaria para asegurar el futuro universitario de mis hijos. </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-primary text-primary-foreground py-6 px-4 md:px-6">
+    <div class="container mx-auto flex items-center justify-between">
+      <p class="text-sm">© 2024 Creado por RIUM</p>
+    </div>
+  </footer>
+</div>
+<script src="script2.js"></script>
+</body>
+</html>
